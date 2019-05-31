@@ -8,8 +8,12 @@ class CountdownTimer extends React.Component {
           super(props);
           this.state = {
             timeRemaining: 0,
-
+            seconds: 0,
+            minutes: 0,
+            hours: 0
           };
+          this.handleChange = this.handleChange.bind(this);
+          this.handleSubmit = this.handleSubmit.bind(this);
         }
 
         increaseTimer(){
@@ -59,6 +63,17 @@ class CountdownTimer extends React.Component {
           clearInterval(this.countdown);
         }
 
+        handleChange(event) {
+          var num = parseInt(event.target.value, 10);
+          var name = event.target.name;
+          this.setState({ [name]: num });
+        }
+
+        handleSubmit(event) {
+         event.preventDefault();
+         var totalSeconds = (this.state.hours * 3600) + (this.state.minutes * 60) + (this.state.seconds);
+         this.setState({timeRemaining: totalSeconds});
+       }
 
         render() {
           return (
@@ -67,8 +82,16 @@ class CountdownTimer extends React.Component {
             <h2 className = "TimerTitle">Countdown Timer </h2>
 
               <div className="clock">
+                {this.state.hours}:{this.state.minutes}:{this.state.seconds}
                 <h1/>
-                {this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
+                Actual timer : {this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
+
+                <form onSubmit={this.handleSubmit}>
+                <input type="number" name="hours" onChange={this.handleChange} placeholder="00"/>:
+                <input type="number"  min="00" max="59" name="minutes" onChange={this.handleChange} placeholder="00"/>:
+                <input type="number" min="00" max="59" name="seconds" onChange={this.handleChange} placeholder="00"/>
+                <input type="submit" value="Submit" />
+                </form>
 
               </div>
 
