@@ -63,7 +63,7 @@ class Timer extends React.Component {
             if (_this.state.timeRemaining > 0){
               _this.setState({ timeRemaining: _this.state.timeRemaining - 1 });
           }
-            if (_this.state.timeRemaining == 0){
+            if (_this.state.timeRemaining == 0){ //// TODO: add beep sound at timer finish
               _this.resetTime();
         }}
         }
