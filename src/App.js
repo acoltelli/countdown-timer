@@ -63,7 +63,8 @@ class Timer extends React.Component {
             if (_this.state.timeRemaining > 0){
               _this.setState({ timeRemaining: _this.state.timeRemaining - 1 });
           }
-            if (_this.state.timeRemaining == 0){ //// TODO: add beep sound at timer finish
+            if (_this.state.timeRemaining == 0){
+               _this.refs.audioBeep.play();
               _this.resetTime();
         }}
         }
@@ -97,27 +98,26 @@ class Timer extends React.Component {
         render() {
           return (
             <div>
-            <h2 className = "TimerTitle">Countdown Timer </h2>
-              <div className='conditional'>
+            <h1 className = "TimerTitle">Countdown Timer </h1>
+            <audio ref= "audioBeep" preload = "auto" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"/>
 
+              <div>
               {(this.state.timerActive == false) ?
-                <div className= "clock">
-
-                  <form onSubmit={this.helperSubmit}>
-                  <input type="text" name= "hours" pattern="\d*" onChange={this.helperChange} placeholder="00" className='hours'/>:
-                  <input type="text" maxLength= "2" pattern="\d*" name="minutes" onChange={this.helperChange} placeholder="00"/>:
-                  <input type="text" maxLength= "2" pattern="\d*" name="seconds" onChange={this.helperChange} placeholder="00"/>
-                  <div>
-                  <input type="submit" value="Begin"/>
+                <div class="form-container">
+                  <form class = "numinput" onSubmit={this.helperSubmit}>
+                  <input type="text" name= "hours" pattern="\d*" autocomplete="off" onChange={this.helperChange} placeholder="00"/>:
+                  <input type="text" maxLength= "2" pattern="\d*" name="minutes" autocomplete="off" onChange={this.helperChange} placeholder="00"/>:
+                  <input type="text" maxLength= "2" pattern="\d*" name="seconds" autocomplete="off" onChange={this.helperChange} placeholder="00"/>
+                  <div class= "btn">
+                  <input type="submit" value="Start"/>
                   </div>
                   </form>
 
                 </div>
                 :
-                <div className = "CountdownTimer ">
-
+                <div className = "clocktimer">
               <div className= "clock">{this.getHours()}:{this.getMinutes()}:{this.getSeconds()}
-              <div>
+              <div className= "btn">
               {this.state.buttonPress ? <button onClick={() => this.startButton()}>Start</button> : <button onClick={() => this.pauseButton()}>Pause</button>}
               <button onClick={() => this.resetTime()}>Reset</button>
               </div>
@@ -125,7 +125,6 @@ class Timer extends React.Component {
 
               </div>
             }
-
               </div>
             </div>
           );

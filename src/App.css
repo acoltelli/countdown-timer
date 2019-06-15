@@ -3,14 +3,10 @@
   src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot");
   src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix")
   format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2")
-  format("woff2"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff")
-  format("woff"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.ttf")
-  format("truetype"), url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.svg#Digital-7")
-  format("svg");
 }
 
 .App {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
@@ -18,21 +14,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 80px;
   color: white;
-
 }
-.TimerTitle{
-  font-family: 'Helvetica', 'Arial', sans-serif;
+
+.TimerTitle, .btn{
   font-size: calc(10px + 2vmin);
-
-
 }
-.conditional{
+
+.clocktimer{
   font-family: digital;
   font-size: 80px;
-
-
+  padding-top: 22px;
 }
 
 input[type="text"]{
@@ -42,8 +35,27 @@ input[type="text"]{
   font-size: 80px;
   color: white;
   text-align: center;
-  width: 100px;
+  width: 90px;
 }
+
+/* .numinput{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-size: 80px;
+
+}
+
+.numinput input {
+  align-items: center;
+  width: 80px;
+  font-family: digital;
+  background-color: #282c34;
+  font-size: 80px;
+  color: white;
+  border: none;
+} */
+
 
 ::placeholder {
   color: white;
