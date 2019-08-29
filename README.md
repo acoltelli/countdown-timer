@@ -1,5 +1,6 @@
 # countdown-timer
-Countdown timer built using React. 
+Countdown timer built using React.   
+<img src="https://github.com/acoltelli/countdown-timer/blob/master/timer.gif" width="500">
 
 ## Build Instructions
  
