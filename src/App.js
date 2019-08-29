@@ -63,7 +63,7 @@ class Timer extends React.Component {
             if (_this.state.timeRemaining > 0){
               _this.setState({ timeRemaining: _this.state.timeRemaining - 1 });
           }
-            if (_this.state.timeRemaining == 0){
+            if (_this.state.timeRemaining === 0){
                _this.refs.audioBeep.play();
               _this.resetTime();
         }}
@@ -78,7 +78,7 @@ class Timer extends React.Component {
         helperSubmit(event) {
          event.preventDefault();
          var totalSeconds = (this.state.hours * 3600) + (this.state.minutes * 60) + (this.state.seconds);
-         if (totalSeconds == 0){
+         if (totalSeconds === 0){
            alert("Please type a value into the countdown timer");
            return;
          }
@@ -102,7 +102,7 @@ class Timer extends React.Component {
             <audio ref= "audioBeep" preload = "auto" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"/>
 
               <div>
-              {(this.state.timerActive == false) ?
+              {(this.state.timerActive === false) ?
                 <div class="form-container">
                   <form class = "numinput" onSubmit={this.helperSubmit}>
                   <input type="text" name= "hours" pattern="\d*" autocomplete="off" onChange={this.helperChange} placeholder="00"/>:
